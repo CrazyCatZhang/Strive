@@ -43,8 +43,6 @@ const items: MenuItem[] = [
   getItem("Files", "9", <FileOutlined />),
 ];
 
-console.log(items);
-
 const Home: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {
