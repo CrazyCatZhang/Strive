@@ -28,8 +28,6 @@ function getItem(
   } as MenuItem;
 }
 
-console.log("theme", theme);
-
 const items: MenuItem[] = [
   getItem("About", "/about", <PieChartOutlined />),
   getItem("User", "/user", <UserOutlined />),
