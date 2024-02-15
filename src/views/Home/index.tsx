@@ -65,7 +65,7 @@ const Home: React.FC = () => {
         <div className="demo-logo-vertical" />
         <Menu
           theme="dark"
-          defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={["/about"]}
           mode="inline"
           items={items}
           onClick={itemSelect}
