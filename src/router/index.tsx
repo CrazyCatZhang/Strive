@@ -1,5 +1,6 @@
 import About from "@/views/About";
 import Home from "@/views/Home";
+import Login from "@/views/Login";
 import User from "@/views/User";
 import React from "react";
 import { Navigate } from "react-router-dom";
@@ -20,6 +21,14 @@ const routes = [
       { path: "/about", element: withLoadingComponent(<About />) },
       { path: "/user", element: withLoadingComponent(<User />) },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "*",
+    element: <Navigate to="/about" />,
   },
 ];
 
