@@ -1,16 +1,29 @@
 import styles from "./login.module.scss";
 import initLoginBg from "./init";
-import { useEffect } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { Button, Input, Space } from "antd";
 import "./login.less";
 import {
-  CompassOutlined,
   EyeInvisibleOutlined,
   EyeTwoTone,
+  LockOutlined,
   UserOutlined,
 } from "@ant-design/icons";
+import _ from "lodash";
 
 const Login = () => {
+  const [userInfo, setUserInfo] = useState({});
+
+  const inputChange = _.debounce((e: ChangeEvent<HTMLInputElement>) => {
+    setUserInfo((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  }, 500);
+
+  const submit = () => {
+    console.log(userInfo);
+  };
+
   useEffect(() => {
     initLoginBg();
     window.addEventListener("resize", initLoginBg);
@@ -27,17 +40,21 @@ const Login = () => {
         <div className="form">
           <Space direction="vertical" size="middle" style={{ display: "flex" }}>
             <Input
+              name="username"
               placeholder="Enter your username"
               prefix={<UserOutlined className="site-form-item-icon" />}
+              onChange={inputChange}
             />
             <Input.Password
+              name="password"
               placeholder="input password"
-              prefix={<CompassOutlined className="site-form-item-icon" />}
+              prefix={<LockOutlined className="site-form-item-icon" />}
               iconRender={(visible) =>
                 visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
               }
+              onChange={inputChange}
             />
-            <Button type="primary" className="loginBtn" block>
+            <Button type="primary" className="loginBtn" block onClick={submit}>
               Login
             </Button>
           </Space>
