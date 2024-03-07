@@ -10,9 +10,18 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import _ from "lodash";
+import { useAppDispatch } from "@/store/hooks";
+import {
+  setPassword,
+  setUsername,
+} from "@/store/features/UserInfo/userInfoSlice";
 
 const Login = () => {
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState({
+    username: "",
+    password: "",
+  });
+  const dispatch = useAppDispatch();
 
   const inputChange = _.debounce((e: ChangeEvent<HTMLInputElement>) => {
     setUserInfo((prev) => {
@@ -21,7 +30,8 @@ const Login = () => {
   }, 500);
 
   const submit = () => {
-    console.log(userInfo);
+    dispatch(setUsername(userInfo.username));
+    dispatch(setPassword(userInfo.password));
   };
 
   useEffect(() => {
