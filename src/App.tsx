@@ -1,9 +1,11 @@
-import { useRoutes } from "react-router-dom";
-import routes from "./router";
+import RouteGuard from "./components/RouteGuard";
 
 function App() {
-  const outlet = useRoutes(routes);
-  return <div>{outlet}</div>;
+  return (
+    <div>
+      <RouteGuard />
+    </div>
+  );
 }
 
 export default App;

@@ -4,6 +4,20 @@ import { Outlet } from "react-router-dom";
 import MainMenu from "@/components/MainMenu";
 
 const { Header, Content, Footer, Sider } = Layout;
+const items = [
+  {
+    title: "Home",
+  },
+  {
+    title: <a href="">Application Center</a>,
+  },
+  {
+    title: <a href="">Application List</a>,
+  },
+  {
+    title: "An Application",
+  },
+];
 
 const Home: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
@@ -24,10 +38,7 @@ const Home: React.FC = () => {
       <Layout>
         <Header style={{ padding: 0, background: colorBgContainer }} />
         <Content style={{ margin: "0 16px" }}>
-          <Breadcrumb style={{ margin: "16px 0" }}>
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb>
+          <Breadcrumb style={{ margin: "16px 0" }} items={items} />
           <div
             style={{
               padding: 24,
