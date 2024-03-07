@@ -16,3 +16,10 @@
 .custom-login .ant-input-password-icon.anticon:hover {
   color: #1890ff;
 }
+.custom-login .captchaBox {
+  display: flex;
+}
+.custom-login .captchaBox .captchaImg {
+  margin-left: 20px;
+  cursor: pointer;
+}
